@@ -6,31 +6,16 @@ A temporary experimental tool for collecting and aggregating signatures for subn
 
 This tool helps collect conversion signatures when your validator node is behind a NAT or firewall and doesn't have a dedicated IP address accessible to other validators, which is common for most laptops and home setups.
 
-## Usage
-
-```
-./local_agg [flags] <conversionID>
-```
-
-Flags:
-- `-host`: Host IP address (default "127.0.0.1")
-- `-port`: Port number (default 9651)
-
-Example:
-```
-./local_agg -host 127.0.0.1 -port 9651 2sEjTD89o5VRD8FZUKC2PzKMwEw1Sh9Wi45hbvjJcGJijr4Srz
-```
-
-## Docker
+## Docker Usage
 
 You can pull the Docker image from Docker Hub:
 ```
-docker pull containerman17/local_agg:latest
+docker pull containerman17/local_agg
 ```
 
 Run using Docker:
 ```
-docker run -it containerman17/local_agg -host <your_ip> -port <your_port> <conversionID>
+docker run -it --net=host --rm containerman17/local_agg YOUR_L1ID
 ```
 
 Supports both amd64 and arm64 architectures.
